@@ -1,13 +1,26 @@
-# linux_steam_cleanup_tool
-Allows Linux Users to quickly delete Compata Data and Shaders from Steam.
+1. Download the script:
+linux_steam_cleanup_tool.sh
 
-1. Make sure the script is executable
-2. Double click on it
-3. The script will look for your steam libraries (It will check the main internal drive as well drives mounted in the /run/media/yourusername/ folder
-4. Choose a Game
-5. Choose an Operation
-   Delete Compatiblity Data: Deletes the game's compatdata folder
-   Delete Shader Cache: Deletes the game's shadercache folder
-   Delete All Game Data: Deletes both the game's compatdata folder and the game's shadercache folder
-6. It will tell you if it deleted the data: "Compatibility Data successfully deleted." or "Shaders sucessfully deleted." depending on the operation specified.
-   If there is no data to delete it will say: "No game data found."
+2. Make the script executable:
+Run the following command in your terminal: chmod +x linux_steam_cleanup_tool.sh
+
+3. Run the script:
+You can double-click it in your file manager (if your environment supports it), or run it from the terminal:
+./linux_steam_cleanup_tool.sh
+
+4. The script will scan your Steam libraries, including:
+Internal Steam library: (~/.steam/steam/steamapps)
+External or secondary libraries under /run/media/yourusername/yourdrivename/SteamLibrary/steamapps/
+
+5. Choose a Game (The script will generate a list of games it finds using the steam manifest files)
+
+6. Choose an Operation
+   Delete Compatiblity Data: Removes the game's compatdata folder
+   Delete Shader Cache: Removes the game's shadercache folder
+   Delete All Game Data: Removes both the game's compatdata folder and the game's shadercache folder
+   
+7. Confirmation message:
+   "Compatibility Data successfully deleted."
+   "Shaders successfully deleted."
+   "Game data successfully deleted."
+   "No game data found." – If nothing was deleted.
