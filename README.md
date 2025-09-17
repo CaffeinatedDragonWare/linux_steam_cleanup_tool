@@ -1,5 +1,5 @@
 1. Download the script:
-linux_steam_cleanup_tool.sh
+steam_cleanup_tool.sh
 
 2. Make the script executable:
 Run the following command in your terminal: chmod +x linux_steam_cleanup_tool.sh
