@@ -1,3 +1,5 @@
+<h3>Linux Steam Cleanup Tool:</h3>
+
 <ol>
    <li>Download the script: steam_cleanup_tool.sh</li>
    <li>Make the script executable, run the following command in your terminal: <br>
