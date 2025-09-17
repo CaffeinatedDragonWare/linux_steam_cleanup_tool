@@ -23,4 +23,4 @@ External or secondary libraries under /run/media/yourusername/yourdrivename/Stea
    "Compatibility Data successfully deleted."
    "Shaders successfully deleted."
    "Game data successfully deleted."
-   "No game data found." – If nothing was deleted.
+   "No game data found." if nothing was deleted.
