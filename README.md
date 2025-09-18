@@ -22,7 +22,6 @@
 </ol>
 
 <h4>Screenshots:</h4>
-<br>
 <img width="433" height="579" alt="image" src="https://github.com/user-attachments/assets/b45db549-ae16-423b-801e-47bb1b64ffd2" />
 <br>
 <img width="431" height="326" alt="image" src="https://github.com/user-attachments/assets/9878d94b-1a46-4e5e-ae4e-a9f917524f3b" />
