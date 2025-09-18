@@ -33,6 +33,9 @@
 <img width="330" height="252" alt="image" src="https://github.com/user-attachments/assets/58be638f-7feb-40be-b8fc-80095570b191" /> <br>
 <img width="330" height="252" alt="image" src="https://github.com/user-attachments/assets/1a2b4591-6370-49e0-88ed-8105177d0d06" />
 
+<h4>Support</h4>
+<p>If you find this tool helpful, consider <a href="https://buymeacoffee.com/dragonware_decaf">buying me a coffee</a></p>
+
 
 
 
