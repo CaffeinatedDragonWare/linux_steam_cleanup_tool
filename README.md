@@ -1,4 +1,5 @@
 <h3>Linux Steam Cleanup Tool:</h3>
+<p>This tool scans your steam libraries and generates a list of all of your instaled games using the Steam Manifest. You can choose a game from this list and delete its compatdata and/or shadercache.</p>
 
 <ol>
    <li>Download the script: steam_cleanup_tool.sh</li>
