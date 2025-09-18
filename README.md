@@ -15,9 +15,9 @@
    Delete Shader Cache: Removes the game's shadercache folder <br>
    Delete All Game Data: Removes both the game's compatdata folder and the game's shadercache folder</li>
    <li>Confirmation messages: <br>
-   <img width="330" height="252" alt="image" src="https://github.com/user-attachments/assets/35c87844-bf8b-404b-be05-af776be0a7b4" /> <br>
-   <img width="330" height="252" alt="image" src="https://github.com/user-attachments/assets/f02d42a0-b388-4e80-99a2-3d6ddcb5480b" /> <br>
-   <img width="330" height="252" alt="image" src="https://github.com/user-attachments/assets/58be638f-7feb-40be-b8fc-80095570b191" /> <br>
+   "Compatibility Data successfully deleted." <br>
+   "Shaders successfully deleted." <br>
+   "Game data successfully deleted." <br>
    If there was nothing to delete: <br>
    <img width="330" height="252" alt="image" src="https://github.com/user-attachments/assets/1a2b4591-6370-49e0-88ed-8105177d0d06" /></li>
 </ol>
