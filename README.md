@@ -1,4 +1,4 @@
-<h3>Linux Steam Cleanup Tool:</h3>
+<h3>Steam Cleanup Tool (For Linux Gamers):</h3>
 <p>This tool scans your steam libraries (Internal: (~/.steam/steam/steamapps) and External or secondary libraries under /run/media/yourusername/yourdrivename/SteamLibrary/steamapps/) to generate a list of all of your instaled games using the Steam Manifest files. You can choose a game from this list and delete its compatdata and/or shadercache.</p>
 
 <h4>Usage:</h4>
