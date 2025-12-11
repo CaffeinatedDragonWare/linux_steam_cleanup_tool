@@ -1,4 +1,5 @@
 #!/bin/bash
+declare -a steamlibs=()
 declare -a drives=()
 declare -a games=()
 declare shaders_deleted="false"
@@ -9,12 +10,22 @@ drives+=("internal")
 
 for drive in "${drives[@]}"; do
     if [[ "$drive" == "internal" ]]; then
-        steampath="/home/$USER/.steam/steam/steamapps"
+        steamlibs+=("/home/$USER/.steam/steam/steamapps")
     else
-        steampath="/run/media/$USER/$drive/SteamLibrary/steamapps"
+        steamlibs+=("/run/media/$USER/$drive/SteamLibrary/steamapps")
     fi
-    
-    # Check if the path exists
+done
+
+extra=$(zenity --entry --title="Extra Steam Libraries" --text="Add extra steamapps paths? (separate multiple paths with ; and put fullpath to your steamapps folder)")
+
+if [[ -n "$extra" ]]; then
+    IFS=";" read -ra added <<< "$extra"
+    for p in "${added[@]}"; do
+        steamlibs+=("$p")
+    done
+fi
+
+for steampath in "${steamlibs[@]}"; do
     if [[ -d "$steampath" ]]; then
         for manifest in "$steampath"/appmanifest_*.acf; do
             appid=$(basename "$manifest" | sed -E 's/appmanifest_([0-9]+)\.acf/\1/')
@@ -30,11 +41,11 @@ choice=$(zenity --list \
     --width=400 --height=700 \
     --print-column=1 \
     < <(for game in "${games[@]}"; do echo "$game"; done))
-    
-if [[  "$choice" == "" ]]; then
+
+if [[ "$choice" == "" ]]; then
     exit
 fi
-    
+
 operation=$(zenity --list \
     --title="What do you want to do with this game?" \
     --column="Options" \
@@ -51,17 +62,12 @@ if [[ "$operation" == "Delete Compatibility Data" || "$operation" == "Erase All 
         exit
     fi
 fi
-    
+
 if [[ -n "$choice" ]]; then
     appid="${choice%%:*}"
     echo $appid
-    for drive in "${drives[@]}"; do
-        if [[ "$drive" == "internal" ]]; then
-            steampath="/home/$USER/.steam/steam/steamapps"
-        else
-            steampath="/run/media/$USER/$drive/SteamLibrary/steamapps"
-        fi
-        
+
+    for steampath in "${steamlibs[@]}"; do
         case "$operation" in
             "Delete Compatibility Data")
                 if [[ -d "$steampath/compatdata/$appid" ]]; then
@@ -80,18 +86,16 @@ if [[ -n "$choice" ]]; then
                     rm -r "$steampath/shadercache/$appid"
                     shaders_deleted="true"
                 fi
-                
                 if [[ -d "$steampath/compatdata/$appid" ]]; then
                     rm -r "$steampath/compatdata/$appid"
                     compatdata_deleted="true"
                 fi
                 ;;
-         esac
-     done
-         
-         
+        esac
+    done
+
 else
-    echo "Nothing selected"e
+    echo "Nothing selected"
     exit
 fi
 
@@ -101,9 +105,10 @@ if [[ "$shaders_deleted" == "true" && "$compatdata_deleted" == "true" ]]; then
 elif [[ "$shaders_deleted" == "true" && "$compatdata_deleted" == "false" ]]; then
     zenity --info --text="Shaders sucessfully deleted."
 
-elif [[  "$shaders_deleted" == "false" && "$compatdata_deleted" == "true" ]]; then
+elif [[ "$shaders_deleted" == "false" && "$compatdata_deleted" == "true" ]]; then
     zenity --info --text="Compatibility Data successfully deleted."
-elif [[  "$shaders_deleted" == "false" && "$compatdata_deleted" == "false" ]]; then
+
+elif [[ "$shaders_deleted" == "false" && "$compatdata_deleted" == "false" ]]; then
     zenity --info --text="No game data found."
 else
     echo "error"
